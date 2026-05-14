@@ -1,8 +1,8 @@
 # add_newline = false
 # continuation_prompt = "[▸▹ ](dimmed white)"
 
-# Increase timeout for scanning directories
-scan_timeout = 100
+# Increase timeout for scanning directories in larger repos
+scan_timeout = 2000
 
 # Format of the prompt
 format = """\
