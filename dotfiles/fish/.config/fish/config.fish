@@ -212,3 +212,7 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Created by `pipx` on 2025-11-30 21:13:37
 set PATH $PATH /home/oliver/.local/bin
+
+# >>> grok installer >>>
+fish_add_path $HOME/.grok/bin
+# <<< grok installer <<<
