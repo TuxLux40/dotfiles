@@ -1,0 +1,15 @@
+[Appearance]
+HideSkinBorders=true
+Skin=Slate
+SkinInstalledWithKns=true
+Translucency=true
+
+[Behavior]
+FocusFollowsMouse=true
+
+[Dialogs]
+FirstRun=false
+
+[Window]
+DynamicTabTitles=true
+Width=50
