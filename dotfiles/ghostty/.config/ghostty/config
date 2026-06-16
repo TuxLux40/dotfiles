@@ -15,3 +15,5 @@ confirm-close-surface = false
 
 keybind = ctrl+up=scroll_page_up
 keybind = ctrl+down=scroll_page_down
+
+quit-after-last-window-closed = false
