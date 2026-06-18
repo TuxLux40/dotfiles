@@ -139,6 +139,7 @@ alias ungz  'tar -xvzf'
 alias sysctl 'systemctl-tui'
 alias stui   'systemctl-tui'
 alias blui   'bluetui'
+alias log    'lazyjournal'
 
 # ── Aliases: misc ─────────────────────────────────────────────────────────────
 alias a 'aichat'
