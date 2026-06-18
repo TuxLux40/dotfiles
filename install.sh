@@ -107,6 +107,16 @@ pkg_install stow stow
 STOW_FLAGS="-v --adopt"
 [ "$DRY_RUN" -eq 1 ] && STOW_FLAGS="$STOW_FLAGS -n"
 
+# A $HOME stow package only ever places hidden entries (.config, .bashrc, …) at
+# the top of $HOME. A directory with a non-hidden top-level entry (e.g. an old
+# packages dir like dotfiles/) would litter $HOME, so it is not a $HOME package.
+is_home_pkg() {
+    for _e in "$1"/*; do
+        if [ -e "$_e" ] || [ -L "$_e" ]; then return 1; fi
+    done
+    return 0
+}
+
 # Remove foreign symlinks that would block --adopt
 drop_foreign() {
     _dir="$1"; _root="$2"; _sudo="$3"
@@ -126,6 +136,10 @@ for _pkg in */; do
     _pkg="${_pkg%/}"
     [ "$_pkg" = "clamav" ] && continue
     [ -d "$_pkg" ] || continue
+    if ! is_home_pkg "$_pkg"; then
+        warn "skipping $_pkg: non-hidden top-level entries (not a \$HOME stow package)"
+        continue
+    fi
     printf "%b\n" "${CYN}--${RC} $_pkg"
     [ "$ADOPT" -eq 0 ] && drop_foreign "$_pkg" "$HOME" ""
     # shellcheck disable=SC2086
