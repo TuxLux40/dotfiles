@@ -1,0 +1,27 @@
+{
+  "extraKnownMarketplaces": {
+    "honcho": {
+      "source": {
+        "source": "github",
+        "repo": "plastic-labs/claude-honcho"
+      }
+    }
+  },
+  "theme": "dark",
+  "enabledPlugins": {
+    "honcho@honcho": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"Caveman mode active. Speak like caveman. Ultra-compress all responses (~75% fewer tokens). Full technical accuracy, caveman grammar. No articles. No auxiliary verbs. Subject-verb-object only. Bad: I will fix the bug by editing the file. Good: Fix bug. Edit file. Done.\"}}'",
+            "statusMessage": "Loading caveman mode..."
+          }
+        ]
+      }
+    ]
+  }
+}
