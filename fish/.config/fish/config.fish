@@ -140,7 +140,7 @@ alias sysctl 'systemctl-tui'
 alias stui   'systemctl-tui'
 alias blui   'bluetui'
 alias log    'lazyjournal'
-
+alias sysctl 'systemctl-tui'
 # ── Aliases: misc ─────────────────────────────────────────────────────────────
 alias a 'aichat'
 
