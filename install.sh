@@ -2,7 +2,7 @@
 
 # Dotfiles bootstrap.
 # Standalone (curl | sh): clones to ~/Projects/dotfiles, symlinks ~/.config/dotfiles, stows.
-# In-repo   (./install.sh): stows from current checkout.
+# In-repo   (./install.sh): stows from current checkout (repo wins by default).
 # Linutil-compat          : packages live at repo root (no dotfiles/ subdir); Linutil's
 #                           dotfiles-setup.sh may need updating to match this layout.
 
@@ -49,7 +49,7 @@ usage() { cat <<EOF
 Usage: install.sh [options]
 
   --dry-run     Preview stow actions only.
-  --adopt       Adopt local configs into repo (local wins). Default: repo wins.
+  --adopt       Let stow adopt local configs (local wins). Default: repo wins.
   --clamav      Stow clamav to /etc/clamav (needs root).
   --sftp        Run sftp-setup.sh after stowing.
   --nas [PATH]  Run symlink-nas.sh after stowing.
@@ -104,8 +104,9 @@ fi
 # --- stow ---------------------------------------------------------------------
 pkg_install stow stow
 
-STOW_FLAGS="-v --adopt"
+STOW_FLAGS="-v"
 [ "$DRY_RUN" -eq 1 ] && STOW_FLAGS="$STOW_FLAGS -n"
+[ "$ADOPT"   -eq 1 ] && STOW_FLAGS="$STOW_FLAGS --adopt"
 
 # A $HOME stow package only ever places hidden entries (.config, .bashrc, …) at
 # the top of $HOME. A directory with a non-hidden top-level entry (e.g. an old
@@ -117,15 +118,14 @@ is_home_pkg() {
     return 0
 }
 
-# Remove foreign symlinks that would block --adopt
-drop_foreign() {
-    _dir="$1"; _root="$2"; _sudo="$3"
-    [ -d "$_dir" ] || return 0
-    find "$_dir" \( -type f -o -type l \) | while IFS= read -r _f; do
-        _t="$_root/${_f#"$_dir"/}"
-        [ -L "$_t" ] || continue
-        if [ "$DRY_RUN" -eq 1 ]; then msg "would unlink: $_t"
-        else $_sudo rm -f "$_t"; fi
+# Delete any file or symlink that would conflict with stow, so repo version wins.
+clear_conflicts() {
+    _pkg="$1"; _tgt="$2"; _sudo="${3:-}"
+    find "$_pkg" \( -type f -o -type l \) | while IFS= read -r _src; do
+        _dst="$_tgt/${_src#"$_pkg"/}"
+        [ -e "$_dst" ] || [ -L "$_dst" ] || continue
+        if [ "$DRY_RUN" -eq 1 ]; then msg "would remove: $_dst"
+        else $_sudo rm -f "$_dst"; fi
     done
 }
 
@@ -141,27 +141,19 @@ for _pkg in */; do
         continue
     fi
     printf "%b\n" "${CYN}--${RC} $_pkg"
-    [ "$ADOPT" -eq 0 ] && drop_foreign "$_pkg" "$HOME" ""
+    [ "$ADOPT" -eq 0 ] && clear_conflicts "$_pkg" "$HOME" ""
     # shellcheck disable=SC2086
     stow $STOW_FLAGS -t "$HOME" "$_pkg" || warn "stow failed: $_pkg"
 done
 
 if [ "$WITH_CLAMAV" -eq 1 ] && [ -d "clamav" ]; then
     msg "stowing clamav -> /etc"
-    [ "$ADOPT" -eq 0 ] && drop_foreign "clamav" "/etc" "$SUDO"
+    [ "$ADOPT" -eq 0 ] && clear_conflicts "clamav" "/etc" "$SUDO"
     # shellcheck disable=SC2086
     $SUDO stow $STOW_FLAGS -t /etc clamav || warn "stow failed: clamav"
 fi
 
 cd - >/dev/null
-
-# Repo wins: discard anything stow adopted so symlinks resolve to tracked versions
-if [ "$ADOPT" -eq 0 ] && [ "$DRY_RUN" -eq 0 ] && [ -d "$REPO_ROOT/.git" ]; then
-    msg "restoring repo (repo is source of truth)"
-    git -C "$REPO_ROOT" restore . 2>/dev/null || \
-        git -C "$REPO_ROOT" checkout -- . 2>/dev/null || \
-        warn "git restore failed"
-fi
 
 # --- extras -------------------------------------------------------------------
 [ "$WITH_SFTP" -eq 1 ] && msg "running sftp-setup.sh" && sh "$REPO_ROOT/sftp-setup.sh"
