@@ -1,0 +1,400 @@
+{
+    "controllers": [
+        {
+            "active_mode": 2,
+            "colors": [
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214,
+                883214
+            ],
+            "description": "Razer Device, Black",
+            "display_name": "",
+            "flags": 1,
+            "leds": [
+                {
+                    "name": "Speaker Underglow LED 1"
+                },
+                {
+                    "name": "Speaker Underglow LED 2"
+                },
+                {
+                    "name": "Speaker Underglow LED 3"
+                },
+                {
+                    "name": "Speaker Underglow LED 4"
+                },
+                {
+                    "name": "Speaker Underglow LED 5"
+                },
+                {
+                    "name": "Speaker Underglow LED 6"
+                },
+                {
+                    "name": "Speaker Underglow LED 7"
+                },
+                {
+                    "name": "Speaker Underglow LED 8"
+                },
+                {
+                    "name": "Speaker Underglow LED 9"
+                },
+                {
+                    "name": "Speaker Underglow LED 10"
+                },
+                {
+                    "name": "Speaker Underglow LED 11"
+                },
+                {
+                    "name": "Speaker Underglow LED 12"
+                },
+                {
+                    "name": "Speaker Underglow LED 13"
+                },
+                {
+                    "name": "Speaker Underglow LED 14"
+                }
+            ],
+            "location": "HID: /dev/hidraw0",
+            "modes": [
+                {
+                    "brightness": 255,
+                    "brightness_max": 255,
+                    "brightness_min": 0,
+                    "color_mode": 1,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 48,
+                    "name": "Direct",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 0,
+                    "name": "Off",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 255,
+                    "brightness_max": 255,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        883214
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 80,
+                    "name": "Static",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 255,
+                    "brightness_max": 255,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 2,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 208,
+                    "name": "Breathing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 255,
+                    "brightness_max": 255,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 16,
+                    "name": "Spectrum Cycle",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 255,
+                    "brightness_max": 255,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 1,
+                    "flags": 18,
+                    "name": "Wave",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                }
+            ],
+            "name": "Razer Leviathan V2 X",
+            "serial": "332529B03600505       ",
+            "type": 12,
+            "vendor": "Razer",
+            "version": "v1.7",
+            "zones": [
+                {
+                    "display_name": "",
+                    "flags": 4096,
+                    "leds_count": 14,
+                    "leds_max": 14,
+                    "leds_min": 14,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Speaker Underglow",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "active_mode": 8,
+            "colors": [
+                65280,
+                65280,
+                65280,
+                65280,
+                65280,
+                65280,
+                65280
+            ],
+            "description": "ASUS Aura USB Mainboard Device",
+            "display_name": "",
+            "flags": 1,
+            "leds": [
+                {
+                    "name": "Aura Mainboard, LED 1"
+                },
+                {
+                    "name": "Aura Mainboard, LED 2"
+                },
+                {
+                    "name": "Aura Mainboard, LED 3"
+                },
+                {
+                    "name": "Aura Mainboard, RGB Header 1"
+                },
+                {
+                    "name": "Aura Mainboard, RGB Header 2"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 1"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 2"
+                }
+            ],
+            "location": "HID: /dev/hidraw4",
+            "modes": [
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 1,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 32,
+                    "name": "Direct",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Off",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Static",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Breathing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Flashing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Spectrum Cycle",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Rainbow",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        65280
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Chase Fade",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        883214
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Chase",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                }
+            ],
+            "name": "ASUS TUF GAMING B550M-PLUS WIFI II",
+            "serial": "9876543210",
+            "type": 0,
+            "vendor": "ASUS",
+            "version": "AULA3-AR42-0222",
+            "zones": [
+                {
+                    "display_name": "",
+                    "flags": 4096,
+                    "leds_count": 5,
+                    "leds_max": 5,
+                    "leds_min": 5,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Aura Mainboard",
+                    "type": 1
+                },
+                {
+                    "display_name": "",
+                    "flags": 4098,
+                    "leds_count": 2,
+                    "leds_max": 120,
+                    "leds_min": 0,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Aura Addressable 1",
+                    "type": 1
+                }
+            ]
+        }
+    ],
+    "profile_name": "xbox green",
+    "profile_version": 6
+}
