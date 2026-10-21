@@ -1,0 +1,45 @@
+# rgb-sync config for os93-steam-pc (Game Mode screen sync).
+# Backup only: install.sh never stows machines/. On this PC,
+# gaming-mode-fixes/rgb-sync/setup.sh links ~/.config/rgb-sync/config.toml here.
+# Anything left out falls back to the defaults in rgb_sync/config.py.
+
+rate_hz = 20
+
+[color]
+saturation = 1.4
+dark_floor = [12, 40]   # brightest channel below 12 -> off, above 40 -> full
+smoothing_ms = 180
+brightness = 1.0
+
+[idle]
+color = "#8000ff"
+
+[fans]
+# Two fans on one pass-through chain, both show the same 15 LEDs.
+device = "ASUS Aura USB"
+zone = "Addressable RGB Header 1"
+leds = 15
+start_angle_deg = -24   # LED 1 at ~11 o'clock seen from the seat (verified 2026-10-21)
+clockwise = true
+band = 0.15
+patch = 0.1
+mainboard = "average"   # board LEDs follow the fans' average, or "off"
+
+[fans.calibration]
+gain = [1.0, 1.0, 1.0]
+gamma = [1.0, 1.0, 1.0]
+
+[soundbar]
+device = "Razer Leviathan V2 X"
+zone = "Speaker Underglow"
+leds = 14
+diagonal = "tl-br"      # LED 1 is the leftmost (verified 2026-10-21)
+patch = 0.1
+
+[soundbar.calibration]
+# Left neutral on purpose (2026-10-21): the Leviathan clips hard near the top,
+# 255/255/255 vs 166/191/255, 100/100/255 and 128/128/128 all looked alike, so
+# gain/gamma has no visible effect. Its slight warm tint seen head-on comes from
+# the separate R/G/B dies; the desk reflection mixes them to near white.
+gain = [1.0, 1.0, 1.0]
+gamma = [1.0, 1.0, 1.0]
