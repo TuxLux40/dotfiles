@@ -9,10 +9,8 @@ rate_hz = 20
 saturation = 1.4
 dark_floor = [12, 40]   # brightest channel below 12 -> off, above 40 -> full
 smoothing_ms = 180
+value_gamma = 0.5       # lift dim colors so the (linear) fans stay visible in dark scenes
 brightness = 1.0
-
-[idle]
-color = "#8000ff"
 
 [fans]
 # Two fans on one pass-through chain, both show the same 15 LEDs.
@@ -21,7 +19,7 @@ zone = "Addressable RGB Header 1"
 leds = 15
 start_angle_deg = -24   # LED 1 at ~11 o'clock seen from the seat (verified 2026-10-21)
 clockwise = true
-band = 0.15
+band = 0.3             # patch centers 30 % inside the border (0.15 sat on panels/HUD)
 patch = 0.1
 mainboard = "average"   # board LEDs follow the fans' average, or "off"
 
