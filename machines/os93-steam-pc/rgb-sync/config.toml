@@ -5,6 +5,13 @@
 
 rate_hz = 20
 
+[capture]
+# Gamescope source OFF (2026-10-21): gamescope's frames have no PTS, videorate
+# aborts, the 5 s restart loop re-attaches to gamescope's stream and gamescope
+# segfaults -> Game Mode crash loop. Re-enable ("gamescope") once capture.py
+# timestamps the frames.
+gamescope_node = ""
+
 [color]
 saturation = 1.4
 dark_floor = [12, 40]   # brightest channel below 12 -> off, above 40 -> full
